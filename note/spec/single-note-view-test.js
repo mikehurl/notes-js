@@ -3,14 +3,14 @@
 function testSingleNoteViewCanBeInstantiated() {
   var singleNote = new SingleNoteView();
   console.log("TEST: testSingleNoteViewCanBeInstantiated")
-  assert.isTrue(singleNote);
+  assert.isTrue(singleNote instanceof SingleNoteView);
 }
 
 function testSingleNoteViewInstantiatesWithNoteModel() {
   var note = new Note("testing")
   var singleNote = new SingleNoteView(note);
   console.log("TEST: testSingleNoteViewInstantiatesWithNoteModel")
-  assert.isTrue(singleNote.getSingleNote);
+  assert.isTrue(singleNote.getSingleNote() === note);
 
 }
 

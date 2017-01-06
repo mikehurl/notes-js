@@ -14,7 +14,7 @@
     var list = this._noteList._list;
     var output = "<ul>";
     for (var i = 0; i < list.length; i++) {
-      output += "<li><div><a href=note/" + list[i].readID() + ">" + list[i].readNote().substring(0,20) + "</a></div></li>";
+      output += "<li><a href=#notes/" + list[i].readID() + ">" + list[i].readNote().substring(0,20) + "</a></li>";
     }
     return output + "</ul>";
   };

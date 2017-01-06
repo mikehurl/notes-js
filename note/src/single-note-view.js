@@ -3,15 +3,15 @@
 (function(exports) {
 
   function SingleNoteView(note) {
-    exports.singleNote = note
+    this.singleNote = note
   }
 
   SingleNoteView.prototype.getSingleNote = function() {
-      return exports.singleNote
+      return this.singleNote
   }
 
   SingleNoteView.prototype.returnHTML = function() {
-    var singleNote = exports.singleNote._text;
+    var singleNote = this.singleNote._text;
     return "<div>" + singleNote + "</div>"
   }
 

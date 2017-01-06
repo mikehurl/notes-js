@@ -3,7 +3,7 @@
 function noteControllerIsInstantiated(){
   var cont = new NoteController();
   console.log("TEST: noteControllerIsInstantiated");
-  assert.isTrue(cont);
+  assert.isTrue(cont instanceof NoteController);
 }
 
 function innerPropertyOfAppContainsHTML(){
@@ -11,8 +11,7 @@ function innerPropertyOfAppContainsHTML(){
   cont.createNote("Favourite food: pesto")
   cont.getHTML();
   console.log("TEST: innerPropertyOfAppContainsHTML");
-  console.log(document.getElementById("app").innerHTML);
-  assert.isTrue(document.getElementById("app").innerHTML === '<ul><li><div><a href="note/0">Favourite food: pest</a></div></li></ul>');
+  assert.isTrue(document.getElementById("app").innerHTML === '<ul><li><a href="#notes/0">Favourite food: pest</a></li></ul>');
 }
 
 noteControllerIsInstantiated();
