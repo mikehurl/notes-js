@@ -14,5 +14,18 @@ function innerPropertyOfAppContainsHTML(){
   assert.isTrue(document.getElementById("app").innerHTML === '<ul><li><a href="#notes/0">Favourite food: pest</a></li></ul>');
 }
 
+function testPageShowsSingleNote(){
+  var cont = new NoteController();
+  cont.makeURLChangeShowNoteForCurrentPage();
+  cont.createNote("Favourite food: pesto")
+  cont.getHTML();
+  document.getElementsByTagName("a")[0].click();
+  window.addEventListener("hashchange", function(){
+    console.log("TEST: PageShowsSingleNote");
+    assert.isTrue(document.getElementById("app").innerHTML === "<div>Favourite food: pesto</div>")
+  });
+}
+
 noteControllerIsInstantiated();
 innerPropertyOfAppContainsHTML();
+testPageShowsSingleNote()
