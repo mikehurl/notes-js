@@ -7,5 +7,6 @@
    controller.createNote("Test string 20000000000000000000000001");
    controller.getHTML();
    controller.makeURLChangeShowNoteForCurrentPage();
+   controller.listenForSubmitEvent();
  });
 })();

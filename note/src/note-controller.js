@@ -27,6 +27,14 @@
     });
   };
 
+  NoteController.prototype.listenForSubmitEvent = function(){
+    var form = document.getElementById("newnote")
+    form.addEventListener("click", function(event) {
+      console.log(event)
+      event.preventDefault();
+    })
+  }
+
   exports.NoteController = NoteController;
 
 })(this);
