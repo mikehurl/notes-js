@@ -16,6 +16,17 @@
    app.innerHTML = this.noteListView.returnHTML();
  };
 
+  NoteController.prototype.makeURLChangeShowNoteForCurrentPage = function(){
+    var self = this;
+    window.addEventListener("hashchange", function(){
+      var id = parseInt(window.location.href.split("notes/")[1]);
+      var note = self.noteList.seeList()[id];
+      var singleNoteView = new SingleNoteView(note);
+      var app = document.getElementById("app");
+      app.innerHTML = singleNoteView.returnHTML();
+    });
+  };
+
   exports.NoteController = NoteController;
 
 })(this);
