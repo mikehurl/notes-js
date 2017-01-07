@@ -26,6 +26,13 @@ function testPageShowsSingleNote(){
   });
 }
 
+function testWhenAppLoadsAnEmptyListIsDisplayed() {
+  var cont = new NoteController();
+  console.log("TEST: testWhenAppLoadsAnEmptyListIsDisplayed")
+  assert.isTrue(document.getElementById("app").innerHTML === "<ul></ul>");
+};
+
 noteControllerIsInstantiated();
 innerPropertyOfAppContainsHTML();
-testPageShowsSingleNote()
+testPageShowsSingleNote();
+testWhenAppLoadsAnEmptyListIsDisplayed();

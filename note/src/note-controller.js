@@ -5,6 +5,8 @@
   function NoteController() {
     this.noteList = new NoteList();
     this.noteListView = new NoteListView(this.noteList);
+    this.getHTML();
+    this.listenForSubmitEvent();
   }
 
   NoteController.prototype.createNote = function(text) {
@@ -28,12 +30,13 @@
   };
 
   NoteController.prototype.listenForSubmitEvent = function(){
-    var form = document.getElementById("newnote")
-    form.addEventListener("click", function(event) {
-      console.log(event)
-      event.preventDefault();
-    })
-  }
+    var self = this;
+    var form = document.getElementById("formtest");
+    form.addEventListener("submit", function(event) {
+    self.createNote(this.elements.text.value);
+    event.preventDefault();
+  });
+  };
 
   exports.NoteController = NoteController;
 
